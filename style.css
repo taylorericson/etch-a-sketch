@@ -2,10 +2,15 @@
     display: flex;
 }
 
-.column {
+.grid-square {
+    flex: 1;
+    border: 1px solid black;
+}
+
+.col {
     flex: 1;
 }
 
-.row {
-    border: 1px solid black;
+.color {
+    background-color: black;
 }
