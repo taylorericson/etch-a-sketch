@@ -8,11 +8,13 @@ clearBtn.addEventListener('click', clearGrid);
 createGrid(16);
 
 function getGridSize() {
-    let gridSize = parseInt(prompt("Enter size: "));
+    let gridSize = prompt("Enter size: ");
 
     if(gridSize >= 1 && gridSize <= 100) {
         createGrid(gridSize);
-    } else {
+    } else if (gridSize == "") {
+        alert("Cancelling...");
+    } else { 
         alert("Enter a positive number (1-100)");
         getGridSize();
     }
@@ -30,7 +32,9 @@ function createGrid(size) {
             row.classList.add('grid-square');
             row.classList.add('row');
             console.log(row.getAttribute('width'));
-            row.textContent = `${j + 1}`;
+            let height = 500 / size;
+            row.style.height = `${height}px`
+            row.style.width = "100%";
             col.appendChild(row);
         }
         container.appendChild(col);
