@@ -1,8 +1,24 @@
 const container = document.querySelector('.container');
+const sizeBtn = document.getElementById('sizeBtn');
+const clearBtn = document.getElementById('clearBtn');
 
-createGrid(16);
+sizeBtn.addEventListener('click', getGridSize);
+clearBtn.addEventListener('click', clearGrid);
+
+function getGridSize() {
+    let gridSize = prompt("Enter size: ");
+    createGrid(gridSize);
+
+    let gridSquare = document.querySelectorAll(".grid-square");
+
+    gridSquare.forEach((square) => {
+        square.addEventListener("mouseover", changeColor);
+    });
+}
 
 function createGrid(size) {
+    container.innerHTML = "";
+
     for(let i = 0; i < size; i++) {
         let col = document.createElement('div');
         col.classList.add('col');
@@ -17,13 +33,15 @@ function createGrid(size) {
     }
 }
 
-const  gridSquare = document.querySelectorAll(".grid-square");
-
-gridSquare.forEach((square) => {
-    square.addEventListener("mouseover", changeColor);
-});
-
 function changeColor(e) {
     e.target.classList.add('color');
 }
 
+function clearGrid() {
+    console.log("this function was called");
+    let gridSquare = document.querySelectorAll('.grid-square');
+
+    gridSquare.forEach((square) => {
+        square.classList.remove('color');
+    });
+}
