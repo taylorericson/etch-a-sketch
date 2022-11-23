@@ -1,9 +1,14 @@
+const DEFAULT_COLOR =   '#333333';
 const container = document.querySelector('.container');
 const sizeBtn = document.getElementById('sizeBtn');
+const colorInput = document.getElementById('colorInput');
 const clearBtn = document.getElementById('clearBtn');
+
+let currentColor = DEFAULT_COLOR;
 
 sizeBtn.addEventListener('click', getGridSize);
 clearBtn.addEventListener('click', clearGrid);
+colorInput.addEventListener('input', setCurrentColor);
 
 createGrid(16);
 
@@ -17,7 +22,7 @@ function getGridSize() {
     } else { 
         alert("Enter a positive number (1-100)");
         getGridSize();
-    }
+    }   
 }
 
 function createGrid(size) {
@@ -31,7 +36,7 @@ function createGrid(size) {
             let row = document.createElement('div');
             row.classList.add('grid-square');
             row.classList.add('row');
-            console.log(row.getAttribute('width'));
+
             let height = 500 / size;
             row.style.height = `${height}px`
             row.style.width = "100%";
@@ -48,15 +53,18 @@ function createGrid(size) {
     
 }
 
+function setCurrentColor(e) {
+    currentColor = e.target.value;
+}
+
 function changeColor(e) {
-    e.target.classList.add('color');
+    e.target.style.backgroundColor = currentColor;
 }
 
 function clearGrid() {
-    console.log("this function was called");
     let gridSquare = document.querySelectorAll('.grid-square');
 
     gridSquare.forEach((square) => {
-        square.classList.remove('color');
+        square.style.backgroundColor = "#FFFFFF";
     });
 }
