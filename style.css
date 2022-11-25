@@ -13,11 +13,16 @@ button {
     width: 120px;
     height: 50px;
     border-radius: 10%;
-    background-color: #5e1e1d;
+    background-color: #702423;
     color: #fbf3f3;
     font-size: 20px;
     font-weight: 700;
     box-shadow: rgba(117, 19, 19, 0.837) 0px 5px 15px;
+}
+
+button:hover {
+    background-color: #5e1e1d;
+    transform: scale(1.25);
 }
 
 input {
@@ -45,7 +50,7 @@ h1 {
     border: 1px solid black;
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: white;
+    background-color: #fbf3f3;
 }
 
 .buttons {
@@ -57,8 +62,13 @@ h1 {
 }
 
 .footer {
-   margin-top: 40px;
-   color: black;
+    display: flex;
+    margin-top: 20px;
+    color: #fbf3f3;
+    font-size: 24px;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
 .col {
@@ -73,3 +83,13 @@ h1 {
 .grid-element {
     user-select: none;
 }
+
+.fa-github {
+    color: white;
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+}
+.fa-github:hover {
+    transform: scale(2);
+    cursor: pointer;
+  }
