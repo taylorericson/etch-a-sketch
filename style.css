@@ -1,3 +1,7 @@
+html {
+    background-color: #cd5f5d;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -5,13 +9,33 @@ body {
     align-items: center;
 }
 
+button {
+    width: 120px;
+    height: 50px;
+    border-radius: 10%;
+    background-color: #5e1e1d;
+    color: #fbf3f3;
+    font-size: 20px;
+    font-weight: 700;
+    box-shadow: rgba(117, 19, 19, 0.837) 0px 5px 15px;
+}
+
+input {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+h1 {
+    font-style: oblique;
+    font-size: 52px;
+    color: #fbf3f3;
+}
+
 .header {
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 400px;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-around;
 }
 
 .container {
@@ -19,14 +43,22 @@ body {
     width: 500px;
     height: 500px;
     border: 1px solid black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
 }
 
 .footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 500px;
-    align-items: center;
+   margin-top: 40px;
+   color: black;
 }
 
 .col {
@@ -36,4 +68,8 @@ body {
 
 .color {
     background-color: black;
+}
+
+.grid-element {
+    user-select: none;
 }

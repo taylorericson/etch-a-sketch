@@ -22,6 +22,10 @@ blackBtn.onclick = () => setCurrentMode('black');
 sizeBtn.addEventListener('click', getGridSize);
 clearBtn.addEventListener('click', clearGrid);
 
+let mouseDown = false
+container.onmousedown = () => (mouseDown = true);
+container.onmouseup = () => (mouseDown = false);
+
 createGrid(16);
 
 function getGridSize() {
@@ -61,6 +65,7 @@ function createGrid(size) {
 
     gridSquare.forEach((square) => {
         square.addEventListener("mouseover", draw);
+        square.addEventListener("mousedown", draw);
     });
     
 }
@@ -74,7 +79,8 @@ function setCurrentColor(newColor) {
 }
 
 function draw(e) {
-
+    if(e.type === "mouseover" && !mouseDown) return;
+    
     if(currentMode === 'rainbow') {
         const randomR = Math.floor(Math.random() * 256);
         const randomG = Math.floor(Math.random() * 256);
