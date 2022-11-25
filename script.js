@@ -33,7 +33,7 @@ function getGridSize() {
 
     if(gridSize >= 1 && gridSize <= 100) {
         createGrid(gridSize);
-    } else if (gridSize == "") {
+    } else if (gridSize === null) {
         alert("Cancelling...");
     } else { 
         alert("Enter a positive number (1-100)");
